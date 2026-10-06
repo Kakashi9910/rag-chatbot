@@ -1,0 +1,12 @@
+# RAG chatbot (Node.js + ChromaDB + Sentence Transformers)
+
+1. `docker compose up -d`            # start ChromaDB on :8000
+2. `npm install`
+3. `cp .env.example .env`            # add ANTHROPIC_API_KEY
+4. Put .txt / .md files in `documents/`
+5. `npm run ingest`                  # chunk -> embed -> store in Chroma
+6. `npm start`
+
+Test:
+curl -X POST localhost:3000/chat -H "Content-Type: application/json" \
+  -d '{"question":"How many casual leaves do employees get?"}'
